@@ -1,0 +1,22 @@
+{% extends "layouts/app.html.twig" %}
+
+{% block content %}
+<img src="{{ asset('images/image1.jpg') }}" class="hero-img"/>
+<div class="container px-5 mt-5">
+    <h2 class="text-center text-capitalize mt-5">premium listings</h2>
+    {% for listing in listings %}
+    <div class="card d-flex flex-row mb-3 border border-primary">
+        <div class="col-4">
+            <img class="img-thumbnail" src="{{ asset('uploads/logos/' ~ listing.filePath) }}" style="height: 300px;">
+        </div>
+        <div class="col-8">
+            <div class="card-body">
+                <h5 class="card-title">{{ listing.name }}</h5>
+                <p class="card-text">{{ listing.description }}</p>
+                <a href="{{ path('listing.show', {'id': listing.id}) }}" class="btn btn-primary text-capitalize">take a look!</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

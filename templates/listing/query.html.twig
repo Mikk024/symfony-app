@@ -1,0 +1,25 @@
+{% extends 'layouts/app.html.twig' %}
+
+{% block content %}
+    <h1 class="my-5 text-center text-capitalize">listings</h1>
+    <div class="container px-5">
+    <div>
+    {{ form(form) }}
+    </div>
+    {% for listing in listings %}
+        <div class="card d-flex flex-row mb-3 border-white">
+            <div class="col-4">
+                <img class="img-thumbnail border-0" src="{{ asset('uploads/logos/' ~ listing.filePath) }}" style="height: 240px;">
+            </div>
+            <div class="col-8">
+                <div class="card-body">
+                    <h5 class="card-title">{{ listing.name }}</h5>
+                    <p class="card-text">{{ listing.description }}</p>
+                    <a href="{{ path('listing.show', {'id': listing.id}) }}" class="btn btn-primary text-capitalize">take a look!</a>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+    {{ knp_pagination_render(listings) }}
+    </div>
+{% endblock %}

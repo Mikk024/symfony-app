@@ -1,0 +1,14 @@
+{% extends "layouts/app.html.twig" %}
+
+{% block content %}
+    <div class="text-center text-capitalize mt-5">
+        <img src="{{ asset('uploads/logos/' ~ listing.filePath) }}" class="img-logo" style="height: 200px;">
+        <h1 class="my-5">{{ listing.name }}</h1>
+        <p class="my-5 px-5">{{ listing.description}}</p>
+        <p class="my-4">{{ listing.location }}</p>
+        <p class="my-4">+48  {{ listing.phone }}</p>
+        <p class="my-4">${{ listing.salary }} gross monthly pay</p>
+        <a class="btn btn-dark text-capitalize mb-5 mt-2" href="mailto:{{ listing.email }}">apply for a job </a>
+    </div>
+
+{% endblock %}
